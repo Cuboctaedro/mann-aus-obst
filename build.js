@@ -18,8 +18,6 @@ const templates = {
 
 const data = {
     'home': generator.getItem(content + '/index.yml'),
-    'projects': generator.getCollection(content + '/projekte'),
-    'members' : generator.getCollection(content + '/ensemble'),
 }
 
 fs.ensureDirSync(public)
