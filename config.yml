@@ -1,9 +1,9 @@
 siteurl: ''
 summaryLength: 300
 siteTitle: 'MaNN AUS OBST'
-publicDir: './public'
-contentDir: './content'
-staticDir: './static'
+publicDir: 'public'
+contentDir: 'content'
+staticDir: 'static'
 dateFormat: 'LL'
 languages: 
     - path: '/'
