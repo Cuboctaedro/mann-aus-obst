@@ -9,7 +9,7 @@ languages:
     - path: '/'
       locale: 'de'
       name: 'Deutsch'
-    - path: '/en'
+    - path: '/en/'
       locale: 'en'
       name: 'English'
 defaultLanguage: 'de'

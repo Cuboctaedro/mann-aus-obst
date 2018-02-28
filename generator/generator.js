@@ -3,6 +3,7 @@ const path = require('upath')
 const YAML = require('yamljs');
 const moment = require('moment')
 const md = require('markdown-it')();
+const implicitFigures = require('markdown-it-implicit-figures');
 
 const globalOptions = YAML.load('./config.yml')
 
@@ -24,7 +25,8 @@ const readPath = function(fileObj) {
 }
 const pathInfo = function(fileObj) {
     fileObj.slug = fileObj.srcurl.name
-    fileObj.fileurl = fileObj.srcurl.dir.replace(contentFolder, '').substr(1) + '/' + fileObj.srcurl.name
+    fileObj.folder = fileObj.srcurl.dir.replace(contentFolder, '').substr(1)
+    fileObj.fileurl = fileObj.folder + '/' + fileObj.slug
     return fileObj
 }
 
@@ -60,6 +62,7 @@ const renderTemplate = function(compiledTemplate, controllerOptions, dir) {
         }
         options.get = function(fieldname) { if (lng.path = '/') {return fieldname} else {return fieldname + '_' + lng.locale} }
         options.md = md
+        options.implicitFigures = implicitFigures
         fs.ensureDirSync(globalOptions.publicDir + lng.path + dir )
         fs.writeFile(globalOptions.publicDir + lng.path + dir + '/' + controllerOptions.slug + '.html', compiledTemplate(options))
     })

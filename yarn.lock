@@ -1856,7 +1856,7 @@ lodash.templatesettings@^3.0.0:
     lodash._reinterpolate "^3.0.0"
     lodash.escape "^3.0.0"
 
-lodash@^4.17.4:
+lodash@^4.17.4, lodash@^4.17.5:
   version "4.17.5"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.5.tgz#99a92d65c0272debe8c96b6057bc8fbfa3bed511"
 
@@ -1914,6 +1914,10 @@ map-visit@^1.0.0:
   resolved "https://registry.yarnpkg.com/map-visit/-/map-visit-1.0.0.tgz#ecdca8f13144e660f1b5bd41f12f3479d98dfb8f"
   dependencies:
     object-visit "^1.0.0"
+
+markdown-it-implicit-figures@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-implicit-figures/-/markdown-it-implicit-figures-0.6.0.tgz#ef591a4a9682462d5be9e050b37debd0284850a1"
 
 markdown-it@^8.4.1:
   version "8.4.1"
