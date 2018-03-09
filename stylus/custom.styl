@@ -1,0 +1,20 @@
+#content
+    p
+        @extend .max-w-600, .mb-30
+    > figure
+        @extend .mb-30
+        > img
+            @extend .d-block, .w-full
+    .tripleimage
+        @extend .mb-20, .cf
+        figure:first-child
+            @extend .mb-10, .w-full, .xl__w-2of3, .xl__f-left
+            img
+                @extend .d-block, .w-full, .xl__h-full, .xl__w-auto
+        figure:nth-child(2)
+            @extend .mb-10, .w-full, .md__w-1of2, .xl__w-1of3, .md__f-left, .xl__f-right
+        figure:nth-child(3)
+            @extend .mb-10, .w-full, .md__w-1of2, .xl__w-1of3, .md__f-right
+    h1
+    h2
+        @extend .ff-titles, .fs-24, .mb-30

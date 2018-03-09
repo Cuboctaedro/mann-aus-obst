@@ -1,0 +1,38 @@
+/*  =========================================================================
+    CLEARFIX
+    ========================================================================= */
+
+// Settings
+clearfix-settings = {
+    'responsive' : true,
+    'classname'  : 'cf'
+}
+
+// Classes
+
+.{clearfix-settings.classname}
+    display: block
+    &:after
+        content: ""
+        display: table
+        clear: both
+
+
+if clearfix-settings.responsive is true
+    for querykey, queryvalue in global-media-queries
+        @media queryvalue
+            if media-query-postfix is true
+                .{clearfix-settings.classname}{querykey}
+                    display: block
+                    &:after
+                        content: ""
+                        display: table
+                        clear: both
+            else
+                .{querykey}{clearfix-settings.classname}
+                    display: block
+                    &:after
+                        content: ""
+                        display: table
+                        clear: both
+

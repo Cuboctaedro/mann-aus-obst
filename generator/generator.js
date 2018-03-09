@@ -8,6 +8,7 @@ const implicitFigures = require('markdown-it-implicit-figures');
 const globalOptions = YAML.load('./config.yml')
 
 
+
 const contentFolder = path.resolve(globalOptions.contentDir)
 
 
@@ -51,6 +52,14 @@ const getItem = function(filePath) {
     return modifyFileObj(pathInfo(readPath(readFile(path.resolve(filePath)))))
 }
 
+const urlResolve = function(item, lang) {
+    if (item.type == 'page') return lang.path + item.slug + "/index.html"
+    if (item.type == 'audio') return lang.path + "audio/" + item.slug + ".html"
+    if (item.type == 'project') return lang.path + "projekte/" + item.slug + ".html"
+    if (item.type == 'member') return lang.path + "ensemble/" + item.slug + ".html"
+    if (item.type == 'home') return lang.path + "index.html"
+}
+
 const renderTemplate = function(compiledTemplate, controllerOptions, dir) {
     globalOptions.languages.forEach(function(lng) {
         let options = Object.assign(globalOptions, controllerOptions)
@@ -61,10 +70,12 @@ const renderTemplate = function(compiledTemplate, controllerOptions, dir) {
             return moment(date).format(globalOptions.dateFormat) 
         }
         options.get = function(fieldname) { if (lng.path = '/') {return fieldname} else {return fieldname + '_' + lng.locale} }
-        options.md = md
+        options.md = md.use(require('markdown-it-container'), 'tripleimage').use(require('markdown-it-container'), 'doubleimage');
         options.implicitFigures = implicitFigures
+        options.urlResolve = urlResolve
         fs.ensureDirSync(globalOptions.publicDir + lng.path + dir )
-        fs.writeFile(globalOptions.publicDir + lng.path + dir + '/' + controllerOptions.slug + '.html', compiledTemplate(options))
+        // fs.writeFile(globalOptions.publicDir + lng.path + dir + '/' + controllerOptions.slug + '.html', compiledTemplate(options))
+        fs.writeFile(globalOptions.publicDir + urlResolve(controllerOptions, lng), compiledTemplate(options))
     })
 }
 

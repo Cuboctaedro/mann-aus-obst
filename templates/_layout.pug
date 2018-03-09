@@ -5,11 +5,56 @@ html(lang=language.locale)
         meta(http-equiv="X-UA-Compatible" content="IE=edge,chrome=1")
         meta(name="viewport" content="width=device-width,initial-scale=1")
         block title
-        
-        link(rel="stylesheet" href="css/styles.css" type="text/css")
-        script(src="https://identity.netlify.com/v1/netlify-identity-widget.js")
-    body
-        block content
+
+        meta(name="author" content="Mann Aus Obst")
+        meta(name="description" content="")
+        block meta
+        link(href="https://fonts.googleapis.com/css?family=Chivo:400,400i,700|Teko:600" rel="stylesheet")
+        link(rel="stylesheet" href="/css/index.css" type="text/css")
+    body(class="ff-text fs-14 lh-16 p-0 m-0 min-h-screen d-flex fxd-col jc-between")
+
+        div(class="wrapper fxg-1")
+            div(class="d-flex fxd-col lg__fxd-row mb-90 lg__mb-150")
+                header(class="w-full lg__w-1of3 xl__w-1of4 pl-15 pr-15")
+                    block sitename
+                        h1(class="m-0 p-0 lh-10 fs-36")
+                            a(class="td-none ff-titles tt-upper fs-36 lh-10 under" href=urlResolve(pages.home, language)) #{siteTitle}
+                nav(class="w-full lg__w-2of3 xl__w-3of4 pl-15 pr-15")
+                    ul(class="d-flex fxd-col sm__fxd-row lg__jc-end pt-10")
+                        li(class="pr-20") 
+                            a(class="td-none ff-titles tt-upper fs-24 lh-10 under" href=urlResolve(pages.projects, language)) 
+                                - var projectstitle = pages.projects[get('title')]
+                                | #{projectstitle}
+                        li(class="pr-20")
+                            a(class="td-none ff-titles tt-upper fs-24 lh-10 under" href=urlResolve(pages.ensemble, language)) 
+                                - var memberstitle = pages.ensemble[get('title')]
+                                | #{memberstitle}
+                        li(class="pr-20")
+                            a(class="td-none ff-titles tt-upper fs-24 lh-10 under" href=urlResolve(pages.audio, language)) 
+                                - var audiotitle = pages.audio[get('title')]
+                                | #{audiotitle}
+                        li(class="pr-20")
+                            a(class="td-none ff-titles tt-upper fs-24 lh-10 under" href=urlResolve(pages.about, language)) 
+                                - var abouttitle = pages.about[get('title')]
+                                | #{abouttitle}
+                        li(class="pr-20")
+                            a(class="td-none ff-titles tt-upper fs-24 lh-10 under" href=urlResolve(pages.links, language)) 
+                                - var linkstitle = pages.links[get('title')]
+                                | #{linkstitle}
+
+            block content
+        footer(class="bg-grey c-white fxg-0 pt-10 pb-10")
+            div(class="wrapper")
+                nav
+                    ul(class="d-flex fxd-row")
+                        li(class="pr-20 tt-upper fs-12 lh-20")
+                            a(class="c-white" href=urlResolve(pages.contact, language))
+                                - var contacttitle = pages.contact[get('title')]
+                                | #{contacttitle}
+                        li(class="pr-20 tt-upper fs-12 lh-20")
+                            a(class="c-white" href=urlResolve(pages.impressum, language))
+                                - var impressumtitle = pages.impressum[get('title')]
+                                | #{impressumtitle}
 
         script(src="scripts/main.js")
         script

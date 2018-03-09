@@ -1,0 +1,35 @@
+/*  =========================================================================
+    OVERFLOW
+    ========================================================================= */
+
+// Settings
+
+overflow-values = {
+    'visible' : visible,
+    'hidden'  : hidden,
+    'scroll'  : scroll,
+    'auto'    : auto
+}
+overflow-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ov-',
+    'values': overflow-values
+}
+overflow-x-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ovx-',
+    'values': overflow-values
+}
+overflow-y-settings = {
+    'responsive' : true,
+    'hover'      : false,
+    'classname'  : 'ovy-',
+    'values': overflow-values
+}
+
+// Classes
+writeClasses('overflow', overflow-settings)
+writeClasses('overflow-x', overflow-x-settings)
+writeClasses('overflow-y', overflow-y-settings)

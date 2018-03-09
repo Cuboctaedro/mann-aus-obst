@@ -1,0 +1,15 @@
+extends _layout.pug
+block title
+    title #{get(title)} - #{siteTitle}
+
+block meta
+
+block content
+    section
+        header(class="pr-15 pl-15 mb-90")
+            - var pagetitle = get(title)
+            include includes/pagetitle.pug
+
+        include includes/audiolisting.pug
+                
+                

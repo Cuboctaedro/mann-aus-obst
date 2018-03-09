@@ -1,0 +1,10 @@
+section(class="d-flex fxw-wrap")
+    each project in collections.projects
+        div(class="w-full md__w-1of2 lg__w-1of3 xl__w-1of4 pl-15 pr-15 mb-30" style="flex:none;")
+            - var imageurl = project.image
+            - var backgroundstyle = 'background-image:url(' + imageurl + ')'
+            - var projecturl = urlResolve(project, language)
+            a(href=projecturl)
+                div(class="bg-pos-center bg-size-cover h-400" style=backgroundstyle )
+                - var projecttitle = project[get('title')]
+                h2(class="pt-10 ff-titles fs-24 lh-10 tt-upper td-none") #{projecttitle}

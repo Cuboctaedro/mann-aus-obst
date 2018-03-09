@@ -1,0 +1,17 @@
+extends _layout.pug
+block title
+    title #{get(title)} - #{siteTitle}
+
+block meta
+
+block sitename
+    div(class="bg-size-cover bg-pos-center w-screen h-screen pos-absolute ov-hidden" style="background-image:url('/images/homebild.jpg'); z-index:-10; top:0;bottom:0;left:0;right:0;")
+    div(class=" h-screen d-flex ai-center pl-30 pos-absolute" style="z-index:-5;")
+        div
+            span(class="d-block fs-18 lh-10 tt-upper ff-titles") Ensemble
+            h1(class="fs-72 tt-upper lh-10 ff-titles") Mann aus Obst
+
+block content
+    section(class="pt-screenh")
+
+        include includes/projectlist.pug

@@ -1,12 +1,8 @@
 const gulp = require('gulp') ;
-const postcss = require('gulp-postcss')
-const tailwindcss = require('tailwindcss')
-
+const stylus = require('gulp-stylus')
 
 gulp.task('css', function () {
-    return gulp.src('css/main.css')
-    .pipe(postcss([
-        tailwindcss('./css/tailwind.js'),
-    ]))
+    return gulp.src('stylus/index.styl')
+    .pipe(stylus())
     .pipe(gulp.dest('static/css/'));
 });

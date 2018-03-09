@@ -1,8 +1,0 @@
-extends _layout.pug
-block title
-    title #{get(title)} - #{siteTitle}
-block content
-    h1 #{get(title)}
-    section 
-        - var body = md.render(get(content))
-        | !{ body }

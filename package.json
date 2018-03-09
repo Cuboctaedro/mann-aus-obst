@@ -9,15 +9,15 @@
     "jstransformer-babel": "^2.1.0",
     "lodash": "^4.17.5",
     "markdown-it": "^8.4.1",
+    "markdown-it-container": "^2.0.0",
     "markdown-it-implicit-figures": "^0.6.0",
     "moment": "^2.20.1",
     "pug": "^2.0.0-rc.4",
-    "tailwindcss": "^0.4.1",
     "upath": "^1.0.2",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-postcss": "^7.0.1"
+    "gulp-stylus": "^2.7.0"
   }
 }

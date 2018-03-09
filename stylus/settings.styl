@@ -1,0 +1,163 @@
+/*  =========================================================================
+    GLOBAL
+    ========================================================================= */
+
+// Media queries
+global-media-queries = {
+    'sm__': 'screen and (min-width: 23em)',//360px
+    'md__': 'screen and (min-width: 44em)',//690px
+    'lg__': 'screen and (min-width: 65em)'//1020px
+    'xl__': 'screen and (min-width: 85em)'//1350px
+}
+// Media query postfix or prefix
+media-query-postfix = false
+
+// Hover
+hover-postfix = false
+hover-identifier = 'h\:'
+
+
+/*  =========================================================================
+    Write Function
+    ========================================================================= */
+
+        
+torem(value)
+    if (typeof(value) isnt 'unit') or (unit(value) isnt 'px')
+        return value 
+    else
+        return unit(value/16, 'rem')
+
+
+writeClasses(property, settings) 
+    for key, value in settings['values']
+        .{settings['classname']}{key}
+            {property}: torem(value)
+    if settings['responsive'] is true
+        for querykey, queryvalue in global-media-queries
+            @media queryvalue
+                for key, value in settings['values']
+                    if media-query-postfix is true
+                        .{settings['classname']}{key}{querykey}
+                            {property}: torem(value)
+                    else
+                        .{querykey}{settings['classname']}{key}
+                            {property}: torem(value)
+    if settings['hover'] is true
+        for key, value in settings['values']
+            if hover-postfix is true
+                .{settings['classname']}{key}{hover-identifier}:hover
+                    {property}: torem(value)
+            else
+                .{hover-identifier}{settings['classname']}{key}:hover
+                    {property}: torem(value)
+
+
+
+
+                    
+/*  =========================================================================
+    CUSTOM GLOBAL VARIABLES
+    ========================================================================= */
+
+// Colors
+global-color-values = {
+    'black': #000000,
+    'white': #ffffff,
+    'grey': #999999,
+    'transparent': transparent
+}
+
+/*  =========================================================================
+    CUSTOM GLOBAL STYLES
+    ========================================================================= */
+html
+    box-sizing: border-box
+*
+*:before
+*:after
+    box-sizing: inherit
+
+figure
+p
+h1
+h2
+h3
+h4
+h5
+h6
+ul
+li
+    margin: 0
+
+img
+    display: inline-block
+    max-width: 100%
+
+a
+    color: global-color-values['black']
+    text-decoration: none
+
+ul
+li
+    list-style: none
+    padding: 0
+
+.wrapper
+    width:100%
+    margin-left: auto
+    margin-right: auto
+    padding-left: torem(15px)
+    padding-right: torem(15px)
+    @media screen and (min-width: 23em)
+        min-width: torem(360px)
+        max-width: torem(480px)
+    @media screen and (min-width: 44em)
+        min-width: torem(690px)
+        max-width: torem(810px)
+    @media screen and (min-width: 65em)
+        min-width: torem(1020px)
+        max-width: torem(1110px)
+    @media screen and (min-width: 85em)
+        min-width: torem(1350px)
+        max-width: torem(1550px)
+
+.under
+    text-decoration: none
+    position: relative
+.under:before
+    content: ""
+    position: absolute
+    width: 0
+    height: 3px
+    bottom: 0
+    left: 0
+    background: #000000
+    visibility: hidden
+    transition: .25s linear
+
+.under:hover:before
+.under:focus:before
+    visibility: visible
+    width:100%
+    right: 0
+
+.underline
+    text-decoration: none
+    position: relative
+.underline:before
+    content: ""
+    position: absolute
+    width: 0
+    height: 1px
+    bottom: 0
+    left: 0
+    background: #000000
+    visibility: hidden
+    transition: .25s linear
+
+.underline:hover:before
+.underline:focus:before
+    visibility: visible
+    width:100%
+    right: 0

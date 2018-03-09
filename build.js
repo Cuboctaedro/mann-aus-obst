@@ -12,9 +12,14 @@ const static = globalOptions.staticDir
 const content = globalOptions.contentDir
 
 const templates = {
-    'default': pug.compileFile('templates/default.pug'),
+    'home': pug.compileFile('templates/home.pug'),
     'project': pug.compileFile('templates/project.pug'),
+    'projects': pug.compileFile('templates/projects.pug'),
     'member': pug.compileFile('templates/member.pug'),
+    'members': pug.compileFile('templates/members.pug'),
+    'page': pug.compileFile('templates/page.pug'),
+    'links': pug.compileFile('templates/links.pug'),
+    'audiolist': pug.compileFile('templates/audiolist.pug'),
 }
 
 const pages = {
@@ -38,7 +43,7 @@ const writePage = function(page, template, dir = pages[page]['slug']) {
     let options = pages[page]
     options.pages = pages
     options.collections = collections
-    options['slug'] = 'index'
+    // options['slug'] = 'index'
     generator.render(template, options, dir)
 }
 
@@ -61,13 +66,13 @@ copydir(static, public, function(err){
         console.log('static files copied!')
     }
 })
-writePage('home', templates.default, '')
-writePage('impressum', templates.default)
-writePage('contact', templates.default)
-writePage('links', templates.default)
-writePage('about', templates.default)
-writePage('projects', templates.default)
-writePage('ensemble', templates.default)
-writePage('audio', templates.default)
+writePage('home', templates.home, '')
+writePage('impressum', templates.page)
+writePage('contact', templates.page)
+writePage('links', templates.links)
+writePage('about', templates.page)
+writePage('projects', templates.projects)
+writePage('ensemble', templates.members)
+writePage('audio', templates.audiolist)
 writeCollection('projects', templates.project)
 writeCollection('members', templates.member)

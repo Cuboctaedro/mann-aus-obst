@@ -1,9 +1,31 @@
 extends _layout.pug
 block title
     title #{get(title)} - #{siteTitle}
+
+block meta
+
 block content
-    h1 #{get(title)}
-    section 
-        - md.use(implicitFigures, {dataType: false, figcaption: false });
-        - var body = md.render(get(content))
-        | !{ body }
+    section
+        header(class="d-flex fxd-col lg__fxd-row mb-90")
+            div(class="lg__w-1of3 xl__w-1of4 pr-15 pl-15")
+                div(class="ff-titles fs-24 md__fs-36 lh-10 tt-upper lg__ta-right") #{date}
+            div(class="lg__w-2of3 xl__w-3of4 pr-15 pl-15")
+                - var pagetitle = get(title)
+                include includes/pagetitle.pug
+        div(class="d-flex fxd-col lg__fxd-row")
+            div(class="lg__w-1of3 xl__w-1of4 ")
+                div(class="d-flex fxd-col md__fxd-row lg__fxd-col")
+                    div(class="w-full md__w-1of2 lg__w-full pr-15 pl-15")
+                        img(src=image class="max-w-full mb-30")
+                    div(class="w-full md__w-1of2 lg__w-full pr-15 pl-15")
+                        ul(class="cast mb-30")
+                            each player in credits
+                                - var member = collections.members.find(function(element){ return element.title == player.member })
+                                li
+                                    a(class="fw-700 d-in-bl mr-10 underline" href=urlResolve(member, language) ) #{member.title}
+                                    span #{player.role}
+                        div(class="audio mb-30") #{link}
+            div(class="lg__w-2of3 xl__w-3of4 pr-15 pl-15" id="content")
+                - md.use(implicitFigures, {dataType: false, figcaption: false });
+                - var body = md.render(get(content))
+                | !{ body }                
