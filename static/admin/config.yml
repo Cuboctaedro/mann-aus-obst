@@ -119,6 +119,30 @@ collections:
             name: "content_fr"
             widget: "markdown"
             required: false
+          - label: "Test Field"
+            name: "testfield"
+            widget: "list"
+            fields:
+                - label: "Title"
+                  name: title2
+                  widget: string
+                - label: "Text"
+                  name: paragraph
+                  widget: text
+                - label: "Three Images" 
+                  name: tripleimage
+                  widget: object
+                  fields:
+                      - label: "Large Image"
+                        name: largeimage
+                        widget: image
+                      - label: "Small Image"
+                        name: smallimage1
+                        widget: image
+                      - label: "Small Image"
+                        name: smallimage2
+                        widget: image
+                        
     - label: "Pages"
       name: "pages"
       files:
