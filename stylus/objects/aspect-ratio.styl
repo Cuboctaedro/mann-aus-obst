@@ -1,0 +1,63 @@
+/*  =========================================================================
+    ASPECT RATIO
+    ========================================================================= */
+
+// Settings
+aspect-ratio-settings = {
+    'responsive' : true,
+    'classname'  : 'ratio-',
+    'insidebox-classname' : 'ratio-inside'
+}
+
+ratios = {
+    'square'         : 1,
+    'gold-portrait'  : 1.618,
+    'gold-landscape' : 0.618,
+    '3by4'           : 4/3,
+}
+// Classes
+
+for name, ratio in ratios
+    .{aspect-ratio-settings.classname}{name}
+        overflow: hidden
+        position: relative
+        height: 0
+        padding-top: ratio * 100%
+
+.{aspect-ratio-settings.insidebox-classname}
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+
+if aspect-ratio-settings.responsive is true
+    for querykey, queryvalue in global-media-queries
+        @media queryvalue
+            if media-query-postfix is true
+                for name, ratio in ratios
+                    .{aspect-ratio-settings.classname}{name}{querykey}
+                        overflow: hidden
+                        position: relative
+                        height: 0
+                        padding-top: ratio * 100%
+                .{aspect-ratio-settings.insidebox-classname}{querykey}
+                    position: absolute
+                    top: 0
+                    left: 0
+                    bottom: 0
+                    right: 0
+            else
+                for name, ratio in ratios
+                    .{querykey}{aspect-ratio-settings.classname}{name}
+                        overflow: hidden
+                        position: relative
+                        height: 0
+                        padding-top: ratio * 100%
+                .{querykey}{aspect-ratio-settings.insidebox-classname}
+                    position: absolute
+                    top: 0
+                    left: 0
+                    bottom: 0
+                    right: 0
+

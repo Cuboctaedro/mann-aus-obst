@@ -1,11 +1,11 @@
 extends _layout.pug
 block title
-    title #{get(title)} - #{siteTitle}
+    title #{siteTitle}
 
 block meta
 
 block sitename
-    div(class="bg-size-cover bg-pos-center w-screen h-screen pos-absolute ov-hidden" style="background-image:url('/images/homebild.jpg'); z-index:-10; top:0;bottom:0;left:0;right:0;")
+    div(class="bg-size-cover bg-pos-center w-full h-screen pos-absolute ov-hidden" style="background-image:url('/images/homebild.jpg'); z-index:-10; top:0;bottom:0;left:0;right:0;")
     div(class=" h-screen d-flex ai-center pl-30 pos-absolute" style="z-index:-5;")
         div
             span(class="d-block fs-18 lh-10 tt-upper ff-titles") Ensemble
@@ -13,5 +13,26 @@ block sitename
 
 block content
     section(class="pt-screenh")
+        div(class="lg__w-2of3 xl__w-1of2 ml-auto mr-auto mb-120 fs-36 ta-center mt-m60" )
+            - md.use(implicitFigures, {dataType: false, figcaption: false });
+            - var body = md.render(get(content))
+            | !{ body }
+    section(class="mb-90")
+        header(class="pr-15 pl-15 mb-90")
+            - var projectstitle = pages.projects[get('title')]
+            h2(class="ff-titles fs-36 md__fs-72 lh-10 tt-upper ta-center") #{projectstitle}
 
         include includes/projectlist.pug
+    
+    section(class="mb-90")
+        header(class="pr-15 pl-15 mb-90")
+            - var memberstitle = pages.ensemble[get('title')]
+            h2(class="ff-titles fs-36 md__fs-72 lh-10 tt-upper ta-center") #{memberstitle}
+        div(class="d-flex fxw-wrap")
+            each member in collections.members
+                div(class="w-1of2 md__w-1of4 lg__w-1of6 xl__w-1of8 pl-15 pr-15 fxg-0 fxs-0" style="flex:none;")
+                    a(href=urlResolve(member, language))
+                        - var imageurl = member.image
+                        - var backgroundstyle = 'background-image:url(' + imageurl + ')'
+                        div(class="bg-pos-center bg-size-cover ratio-3by4" style=backgroundstyle ) 
+                        h3(class="ff-titles fs-24 lh-10 tt-upper pt-10") #{member.title}

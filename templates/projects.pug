@@ -8,6 +8,5 @@ block content
     section
         header(class="pr-15 pl-15 mb-90")
             - var pagetitle = get(title)
-            include includes/pagetitle.pug
-
+            h1(class="ff-titles fs-36 md__fs-72 lh-10 tt-upper ta-center") #{pagetitle}
         include includes/projectlist.pug

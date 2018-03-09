@@ -11,7 +11,7 @@ html(lang=language.locale)
         block meta
         link(href="https://fonts.googleapis.com/css?family=Chivo:400,400i,700|Teko:600" rel="stylesheet")
         link(rel="stylesheet" href="/css/index.css" type="text/css")
-    body(class="ff-text fs-14 lh-16 p-0 m-0 min-h-screen d-flex fxd-col jc-between")
+    body(class="ff-text fs-14 lh-16 p-0 m-0 min-h-screen d-flex fxd-col jc-between pt-10")
 
         div(class="wrapper fxg-1")
             div(class="d-flex fxd-col lg__fxd-row mb-90 lg__mb-150")
@@ -22,23 +22,23 @@ html(lang=language.locale)
                 nav(class="w-full lg__w-2of3 xl__w-3of4 pl-15 pr-15")
                     ul(class="d-flex fxd-col sm__fxd-row lg__jc-end pt-10")
                         li(class="pr-20") 
-                            a(class="td-none ff-titles tt-upper fs-24 lh-10 under" href=urlResolve(pages.projects, language)) 
+                            a(class="td-none ff-titles tt-upper fs-24 lh-16 under" href=urlResolve(pages.projects, language)) 
                                 - var projectstitle = pages.projects[get('title')]
                                 | #{projectstitle}
                         li(class="pr-20")
-                            a(class="td-none ff-titles tt-upper fs-24 lh-10 under" href=urlResolve(pages.ensemble, language)) 
+                            a(class="td-none ff-titles tt-upper fs-24 lh-16 under" href=urlResolve(pages.ensemble, language)) 
                                 - var memberstitle = pages.ensemble[get('title')]
                                 | #{memberstitle}
                         li(class="pr-20")
-                            a(class="td-none ff-titles tt-upper fs-24 lh-10 under" href=urlResolve(pages.audio, language)) 
+                            a(class="td-none ff-titles tt-upper fs-24 lh-16 under" href=urlResolve(pages.audio, language)) 
                                 - var audiotitle = pages.audio[get('title')]
                                 | #{audiotitle}
                         li(class="pr-20")
-                            a(class="td-none ff-titles tt-upper fs-24 lh-10 under" href=urlResolve(pages.about, language)) 
+                            a(class="td-none ff-titles tt-upper fs-24 lh-16 under" href=urlResolve(pages.about, language)) 
                                 - var abouttitle = pages.about[get('title')]
                                 | #{abouttitle}
                         li(class="pr-20")
-                            a(class="td-none ff-titles tt-upper fs-24 lh-10 under" href=urlResolve(pages.links, language)) 
+                            a(class="td-none ff-titles tt-upper fs-24 lh-16 under" href=urlResolve(pages.links, language)) 
                                 - var linkstitle = pages.links[get('title')]
                                 | #{linkstitle}
 

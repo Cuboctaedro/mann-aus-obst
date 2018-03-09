@@ -5,6 +5,6 @@ section(class="d-flex fxw-wrap")
             - var backgroundstyle = 'background-image:url(' + imageurl + ')'
             - var projecturl = urlResolve(project, language)
             a(href=projecturl)
-                div(class="bg-pos-center bg-size-cover h-400" style=backgroundstyle )
+                div(class="bg-pos-center bg-size-cover ratio-3by4" style=backgroundstyle )
                 - var projecttitle = project[get('title')]
                 h2(class="pt-10 ff-titles fs-24 lh-10 tt-upper td-none") #{projecttitle}
