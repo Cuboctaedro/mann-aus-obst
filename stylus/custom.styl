@@ -1,20 +1,47 @@
+.large-title
+    @extend .ff-titles, .fs-36, .md__fs-72, .lh-10, .tt-upper, .ta-center
+
+.medium-title
+    @extend .ff-titles, .fs-24, .md__fs-36, .lh-10, .tt-upper
+
+.small-title
+    @extend .ff-titles, .fs-24, .lh-10, .tt-upper
+
 #content
     p
-        @extend .max-w-600, .mb-30
+        @extend .xl__w-2of3, .mb-25
     > figure
-        @extend .mb-30
+        @extend .mb-25
         > img
             @extend .d-block, .w-full
     .tripleimage
-        @extend .mb-20, .cf
-        figure:first-child
-            @extend .mb-10, .w-full, .xl__w-2of3, .xl__f-left
+        @extend .mb-15, .xl__d-flex, .fxd-row
+        > figure
+            @extend .mb-10, .xl__w-2of3, .xl__as-stretch, .ov-hidden
             img
                 @extend .d-block, .w-full, .xl__h-full, .xl__w-auto
+        > div
+            @extend .md__d-flex, .fxd-row, .xl__fxd-col, .w-full, .xl__w-1of3, .xl__pl-10, .xl__as-stretch
+            figure:nth-child(1)
+                @extend .mb-10,.md__w-1of2, .xl__w-full, .md__pr-5, .xl__pr-0
+                img
+                    @extend .d-block, .w-full
+            figure:nth-child(2)
+                @extend .mb-10, .md__w-1of2, .xl__w-full, .md__pl-5, .xl__pl-0
+                img
+                    @extend .d-block, .w-full
+    .doubleimage
+        @extend .mb-25, .lg__d-flex, .fxd-row
+        figure:nth-child(1)
+            @extend .lg__w-1of2, .lg__pr-5, .mb-25, .lg__mb-0, .max-w-auto
+            img
+                @extend .w-full
         figure:nth-child(2)
-            @extend .mb-10, .w-full, .md__w-1of2, .xl__w-1of3, .md__f-left, .xl__f-right
-        figure:nth-child(3)
-            @extend .mb-10, .w-full, .md__w-1of2, .xl__w-1of3, .md__f-right
+            @extend .lg__w-1of2, .lg__pl-5
+            img
+                @extend .w-full
+
     h1
     h2
-        @extend .ff-titles, .fs-24, .mb-30
+        @extend .small-title, .mb-25
+

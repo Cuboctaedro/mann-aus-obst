@@ -1,8 +1,17 @@
 extends _layout.pug
 block title
-    title #{title} - #{siteTitle}
+    title #{get(title)} - #{siteTitle}
+
+block meta
+
 block content
-    h1 #{title}
-    section 
-        - var body = md.render(get(content))
-        | !{ body }
+    section
+        header(class="pr-15 pl-15 mb-90")
+            - var pagetitle = get(title)
+            h1(class="large-title") #{pagetitle}
+        div(class="md__d-flex mb-60")
+            div(class="w-full md__w-1of2 pr-15 pl-15 mb-30")
+                img(src=image)
+            div(class="w-full md__w-1of2 pr-15 pl-15")
+                - var body = md.render(get(content))
+                | !{ body }

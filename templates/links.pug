@@ -8,7 +8,7 @@ block content
     section
         header(class="pr-15 pl-15 mb-90")
             - var pagetitle = get(title)
-            include includes/pagetitle.pug
+            h1(class="large-title") #{pagetitle}
             
         div(class="pr-15 pl-15")
             each link in links

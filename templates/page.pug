@@ -8,9 +8,10 @@ block content
     section
         header(class="pr-15 pl-15 mb-90")
             - var pagetitle = get(title)
-            include includes/pagetitle.pug
+            h1(class="large-title") #{pagetitle}
             
-        div(class="pr-15 pl-15" id="content")
-            - md.use(implicitFigures, {dataType: false, figcaption: false });
-            - var body = md.render(get(content))
-            | !{ body }                
+        div(class="pr-15 pl-15 xl__w-3of4 xl__ml-1of4")
+            div( id="content")
+                - md.use(implicitFigures, {dataType: false, figcaption: false });
+                - var body = md.render(get(content))
+                | !{ body }                

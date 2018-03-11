@@ -9,7 +9,9 @@ block sitename
     div(class=" h-screen d-flex ai-center pl-30 pos-absolute" style="z-index:-5;")
         div
             span(class="d-block fs-18 lh-10 tt-upper ff-titles") Ensemble
-            h1(class="fs-72 tt-upper lh-10 ff-titles") Mann aus Obst
+            h1(class="fs-72 tt-upper lh-10 ff-titles") M
+                span(style="font-size: 80%;") a
+                | NN AUS OBST
 
 block content
     section(class="pt-screenh")
@@ -20,19 +22,19 @@ block content
     section(class="mb-90")
         header(class="pr-15 pl-15 mb-90")
             - var projectstitle = pages.projects[get('title')]
-            h2(class="ff-titles fs-36 md__fs-72 lh-10 tt-upper ta-center") #{projectstitle}
+            h2(class="large-title") #{projectstitle}
 
         include includes/projectlist.pug
     
     section(class="mb-90")
         header(class="pr-15 pl-15 mb-90")
             - var memberstitle = pages.ensemble[get('title')]
-            h2(class="ff-titles fs-36 md__fs-72 lh-10 tt-upper ta-center") #{memberstitle}
+            h2(class="large-title") #{memberstitle}
         div(class="d-flex fxw-wrap")
             each member in collections.members
-                div(class="w-1of2 md__w-1of4 lg__w-1of6 xl__w-1of8 pl-15 pr-15 fxg-0 fxs-0" style="flex:none;")
+                div(class="w-1of2 md__w-1of4 lg__w-1of6 xl__w-1of8 pl-15 pr-15 fxg-0 fxs-0 mb-30" style="flex:none;")
                     a(href=urlResolve(member, language))
                         - var imageurl = member.image
                         - var backgroundstyle = 'background-image:url(' + imageurl + ')'
-                        div(class="bg-pos-center bg-size-cover ratio-3by4" style=backgroundstyle ) 
-                        h3(class="ff-titles fs-24 lh-10 tt-upper pt-10") #{member.title}
+                        div(class="bg-pos-center bg-size-cover ratio-3by4 mb-15" style=backgroundstyle ) 
+                        h3(class="small-title") #{member.title}

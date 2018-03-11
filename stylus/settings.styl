@@ -122,25 +122,6 @@ li
         min-width: torem(1350px)
         max-width: torem(1550px)
 
-.under
-    text-decoration: none
-    position: relative
-.under:before
-    content: ""
-    position: absolute
-    width: 0
-    height: 3px
-    bottom: 0
-    left: 0
-    background: #000000
-    visibility: hidden
-    transition: .25s linear
-
-.under:hover:before
-.under:focus:before
-    visibility: visible
-    width:100%
-    right: 0
 
 .underline
     text-decoration: none
@@ -149,15 +130,26 @@ li
     content: ""
     position: absolute
     width: 0
-    height: 1px
     bottom: 0
     left: 0
-    background: #000000
     visibility: hidden
     transition: .25s linear
-
 .underline:hover:before
 .underline:focus:before
     visibility: visible
     width:100%
     right: 0
+
+
+.underline-fat:before
+    height: 3px
+
+.underline-thin:before
+    height: 1px
+    
+.underline-black:before
+    background: #000000
+    
+.underline-white:before
+    background: #ffffff
+

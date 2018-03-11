@@ -1,12 +1,12 @@
 div(class="")
     each member in collections.members
-        div(class="d-flex mb-30" )
-            div(class="w-full md__w-1of2 lg__w-1of3 xl__w-1of4 pl-15 pr-15 fxg-0 fxs-0") 
+        div(class="md__d-flex mb-60" )
+            div(class="w-full md__w-1of2 lg__w-1of3 xl__w-1of4 pl-15 pr-15 fxg-0 fxs-0 mb-25") 
                 img(src=member.image)
-            div(class="pl-15 pr-15 fxg-1 max-w-600")
-                h2(class="ff-titles fs-24 sm__fs-36 mb-20")
-                    a(class="under" href=urlResolve(member, language)) #{member.title}
-                div 
+            div(class="pl-15 pr-15 w-full md__w-1of2 lg__w-2of3 xl__w-1of2")
+                h2(class="medium-title mb-15")
+                    a(class="underline undrline-fat underline-black" href=urlResolve(member, language)) #{member.title}
+                div
                     - md.use(implicitFigures, {dataType: false, figcaption: false });
                     - var contentfield = get('content')
                     - var body = md.render(member[contentfield])

@@ -8,10 +8,10 @@ block content
     section
         header(class="d-flex fxd-col lg__fxd-row mb-90")
             div(class="lg__w-1of3 xl__w-1of4 pr-15 pl-15")
-                div(class="ff-titles fs-24 md__fs-36 lh-10 tt-upper lg__ta-right") #{date}
+                div(class="medium-title lg__ta-right") #{date}
             div(class="lg__w-2of3 xl__w-3of4 pr-15 pl-15")
                 - var pagetitle = get(title)
-                include includes/pagetitle.pug
+                h1(class="medium-title") #{pagetitle}
         div(class="d-flex fxd-col lg__fxd-row")
             div(class="lg__w-1of3 xl__w-1of4 ")
                 div(class="d-flex fxd-col md__fxd-row lg__fxd-col")
@@ -22,7 +22,7 @@ block content
                             each player in credits
                                 - var member = collections.members.find(function(element){ return element.title == player.member })
                                 li
-                                    a(class="fw-700 d-in-bl mr-10 underline" href=urlResolve(member, language) ) #{member.title}
+                                    a(class="fw-700 d-in-bl mr-10 underline underline-thin underline-black" href=urlResolve(member, language) ) #{member.title}
                                     span #{player.role}
                         div(class="audio mb-30") #{link}
             div(class="lg__w-2of3 xl__w-3of4 pr-15 pl-15" id="content")
