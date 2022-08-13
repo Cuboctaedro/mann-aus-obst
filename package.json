@@ -13,7 +13,6 @@
     "markdown-it-implicit-figures": "^0.6.0",
     "moment": "^2.20.1",
     "pug": "^2.0.0-rc.4",
-    "upath": "^1.0.2",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
